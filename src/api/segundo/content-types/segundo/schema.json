@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "segundos",
+  "info": {
+    "singularName": "segundo",
+    "pluralName": "segundos",
+    "displayName": "segundo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "materia": {
+      "type": "string",
+      "required": true
+    },
+    "fecha": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
