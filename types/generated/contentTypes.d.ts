@@ -369,12 +369,13 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiPrimeroPrimero extends Struct.CollectionTypeSchema {
-  collectionName: 'primeros';
+export interface ApiApunteApunte extends Struct.CollectionTypeSchema {
+  collectionName: 'apuntes';
   info: {
-    displayName: 'primero';
-    pluralName: 'primeros';
-    singularName: 'primero';
+    description: '';
+    displayName: 'apunte';
+    pluralName: 'apuntes';
+    singularName: 'apunte';
   };
   options: {
     draftAndPublish: true;
@@ -384,11 +385,11 @@ export interface ApiPrimeroPrimero extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     fecha: Schema.Attribute.String & Schema.Attribute.Required;
-    img: Schema.Attribute.Media<'images' | 'files'> & Schema.Attribute.Required;
+    img: Schema.Attribute.Media<'images' | 'files'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::primero.primero'
+      'api::apunte.apunte'
     > &
       Schema.Attribute.Private;
     materia: Schema.Attribute.String & Schema.Attribute.Required;
@@ -397,68 +398,7 @@ export interface ApiPrimeroPrimero extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     url: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface ApiSegundoSegundo extends Struct.CollectionTypeSchema {
-  collectionName: 'segundos';
-  info: {
-    displayName: 'segundo';
-    pluralName: 'segundos';
-    singularName: 'segundo';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    fecha: Schema.Attribute.String & Schema.Attribute.Required;
-    img: Schema.Attribute.Media<'images' | 'files'> & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::segundo.segundo'
-    > &
-      Schema.Attribute.Private;
-    materia: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface ApiTerceroTercero extends Struct.CollectionTypeSchema {
-  collectionName: 'terceros';
-  info: {
-    displayName: 'tercero';
-    pluralName: 'terceros';
-    singularName: 'tercero';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    fecha: Schema.Attribute.String & Schema.Attribute.Required;
-    img: Schema.Attribute.Media<'images' | 'files'> & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::tercero.tercero'
-    > &
-      Schema.Attribute.Private;
-    materia: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
+    year: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -971,9 +911,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::primero.primero': ApiPrimeroPrimero;
-      'api::segundo.segundo': ApiSegundoSegundo;
-      'api::tercero.tercero': ApiTerceroTercero;
+      'api::apunte.apunte': ApiApunteApunte;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -1,10 +1,11 @@
 {
   "kind": "collectionType",
-  "collectionName": "segundos",
+  "collectionName": "apuntes",
   "info": {
-    "singularName": "segundo",
-    "pluralName": "segundos",
-    "displayName": "segundo"
+    "singularName": "apunte",
+    "pluralName": "apuntes",
+    "displayName": "apunte",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,12 +24,16 @@
       "required": true
     },
     "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
+      ]
+    },
+    "year": {
+      "type": "string",
       "required": true
     }
   }
